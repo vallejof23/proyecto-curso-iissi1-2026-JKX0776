@@ -1,19 +1,50 @@
-# Título Proyecto
+# GesReferee
 
-## Miembros del grupo LX-XXX-X (sustituir)
+## Miembros del grupo L8-AM-G6
 
 1. Bardín Díaz, Simón
-1. Apellidos, Nombre
-1. Apellidos, Nombre
-1. Apellidos, Nombre
+2. Fernández Vallejo, Rubén
+3. Braulio Reyes, Abel
+
 
 ## 1. Introducción al problema
 
-- Descripción del problema para poner en contexto el proyecto, incluyendo información sobre los clientes y usuarios, la situación actual, problemas, expectativas, etc. Se valorará la presencia de información multimedia (fotos, gráficos, documentos escaneados, etc.).
+El comité de árbitros de baloncesto organiza el arbitraje de partidos de distintas categorías (Senior, Junior, Cadete, Infantil, Mini), géneros (masculino, femenino, mixto) y competiciones (A, B, C). Cada partido necesita un equipo arbitral compuesto por varios árbitros con diferentes cargos (principal, auxiliar, mesa). 
+Como clientes estarán nuestros árbitros a quienes designaremos y por supuesto pagaremos, además tendremos como usuarios administradores a todos los designadores que contamos en nuestro equipo de administración en el comité.
+La situación actual la podemos explicar brevemente, las designaciones, los resultados, las incidencias y los pagos se gestionan mediante hojas de cálculo, mensajes por correo electrónico o telegram e incluso por papel en los peores casos. Mediante hojas de cálculo los designadores organizan la jornada y posteriormente son enviadas por correo electrónico y telegram. Tras el fin de la jornada cada árbitro principal debe enviar el resultado por correo adjuntando si lo hubiera las incidencias.	Esta situación nos genera solapamiento o huecos sin cubrir en las designaciones, dificultad para que cada árbitro consulte sus partidos, errores en el cálculo de contabilidad de cada árbitro e incidencias que se quedaban sin solventar.
+Las expectativas son de centralizar en una aplicación la gestión de árbitros, partidos, designaciones, incidencias y contabilidad, con acceso diferenciado según tu rol, árbitro o designador.
+
 
 ## 2. Glosario de términos
 
-- Términos específicos del dominio del problema, ordenados alfabéticamente. Se valorará la presencia de información multimedia.
+Árbitro auxiliar: Miembro del equipo arbitral que asiste durante el desarrollo del encuentro.
+                                      
+Árbitro principal: Máxima autoridad del equipo arbitral en un partido y único responsable autorizado para registrar el resultado final.
+
+
+
+
+Cargo: Rol específico que asume un árbitro (Principal, Auxiliar u Oficial de mesa).
+
+Categoría: Clasificación de los partidos (Senior, Junior, Cadete, Infantil y Mini).
+      
+
+Comité de árbitros: Entidad organizadora encargada de gestionar el arbitraje.
+
+         
+Designación / Asignación: Asignación formal de un árbitro a un partido específico.
+
+Disponibilidad: Franjas horarias y fechas en las que un árbitro puede ser designado.
+
+Equipo arbitral: Conjunto de árbitros asignados a un mismo partido.
+
+Honorario (o Precio): Importe económico fijado por el administrador al crear un partido.
+
+Incidencia: Registro formal de cualquier suceso destacable durante un encuentro.
+
+Oficial de mesa: Miembro del equipo arbitral encargado de las labores de control (acta, tiempos).
+        
+Partido suspendido: Estado de un encuentro que ha sido cancelado o interrumpido.
 
 ## 3. Visión general del sistema
 
