@@ -61,178 +61,132 @@ Administrador: Gestor del comité, se encargará de gestionar usuarios, árbitro
 
 ### 4.1. Requisitos funcionales
 
-### R.F.01. Iniciar Sesión
-Como usuario quiero iniciar sesión con email y contraseña para acceder a las funciones de mi rol.
-Prueba de aceptación
-Con credenciales válidas se accede a su usuario.
-Con credenciales erróneas se muestra un mensaje de error sin indicar qué dato falla.
-Se debe aplicar la regla de negocio R.N.01.
-
-### R.F.02. Cerrar Sesión 
-Como usuario quiero cerrar sesión para proteger mi cuenta en dispositivos compartidos.
-Prueba de aceptación
-Tras cerrar sesión no se puede acceder a páginas protegidas.
-
-### R.F.03. Gestionar Usuarios
-Como administrador quiero crear, modificar y dar de baja usuarios para controlar quién accede al sistema.
-Prueba de aceptación
-Se puede crear un usuario con email y contraseña válidos.
-No se permite crear un usuario con un email ya existente.
-Al dar de baja un usuario no se puede volver a iniciar sesión.
-Se debe aplicar la regla de negocio R.N.01 y R.N.02.
-
-### R.F.04. Gestionar Árbitros
-Como administrador quiero dar de alta, modificar y consultar árbitros para mantener actualizado el censo del comité.
-Prueba de aceptación
-Se puede registrar un árbitro con nombre completo, DNI, ciudad y teléfono.
-No se permite un DNI duplicado o con formato inválido.
-Un árbitro con designaciones no puede eliminarse, sólo darse de baja.
-Se debe aplicar la regla de negocio R.N.03.
-
-### R.F.05. Consultar Árbitros
-Como usuario quiero consultar la ficha de los árbitros para localizar a un árbitro y obtener su contacto.
-Prueba de aceptación
-Se muestra el listado con nombre completo, ciudad y teléfono.
-Se puede buscar por nombre o ciudad.
-El DNI solo es visible para el administrador.
-
-### R.F.06. Gestionar Partidos
-Como administrador quiero crear, modificar y consultar partidos para planificar la competición.
-Prueba de aceptación
-Se puede crear un partido con categoría, género, competición, jornada, lugar, fecha, equipos y precio.
-No se permite crear un partido con equipo local igual al visitante.
-No se puede eliminar un partido con designaciones o contabilizado; solo suspenderlo.
-Se debe aplicar la regla de negocio R.N.07 y R.N.12.
-
-### R.F.07. Filtrar Partidos
-Como usuario quiero filtrar los partidos por categoría, género, competición, jornada y fecha para encontrar rápidamente los que me interesan.
-Prueba de aceptación
+### R.F.01. Filtrar Partidos
+Como usuario quiero filtrar los partidos por categoría, género, competición, jornada y fecha, y ver cuántos árbitros tiene designados cada uno, para encontrar rápidamente los que me interesan.
 Cada filtro, solo o combinado, devuelve únicamente los partidos que cumplen todas las condiciones.
+Se muestra el número de árbitros designados de cada partido, incluidos los que no tienen ninguno.
 Sin resultados se muestra un mensaje informativo.
+Se debe aplicar la regla de negocio R.N.05.
 
-### R.F.08. Designar Árbitros a un Partido
-Como administrador quiero asignar árbitros a un partido indicando su cargo y observaciones para formar el equipo arbitral.
-Prueba de aceptación
-Se puede asignar un árbitro con cargo (Principal, Auxiliar, Mesa) y observaciones opcionales.
-No se permite asignar un árbitro con otro partido a la misma fecha y hora.
-No se permite repetir el mismo árbitro en el mismo partido.
-Se muestra un aviso si el partido cae fuera de la disponibilidad del árbitro. Se debe aplicar la regla de negocio R.N.04, R.N.05 y R.N.13.
+### R.F.02. Consultar Partidos con Equipo Arbitral Incompleto
+Como administrador quiero consultar los partidos no suspendidos que todavía no tienen cubiertos los tres cargos (principal, auxiliar y mesa), indicando cuántos cargos les faltan, para saber en qué partidos tengo que designar árbitros.
+Un partido sin ninguna designación aparece con 3 cargos pendientes.
+Un partido con los tres cargos cubiertos no aparece.
+Se debe aplicar la regla de negocio R.N.06 y R.N.15.
 
-### R.F.09. Modificar o Eliminar una Designación
-Como administrador quiero modificar o eliminar una designación para corregir cambios o imprevistos.
-Prueba de aceptación
-Se puede cambiar el cargo o las observaciones de una designación.
-Al eliminar una designación el partido refleja que le falta el cargo.
-No se puede modificar una designación de un partido ya contabilizado.
+### R.F.03. Consultar Árbitros Candidatos para un Partido
+Como administrador quiero consultar los árbitros que se pueden designar en un partido concreto para elegir a quién designar sin incumplir las reglas de negocio.
+Solo aparecen los árbitros que no están de baja, que no están ya designados en ese partido, que no tienen otro partido que se solape con él y que no han indicado que no están disponibles en esa franja.
+Un árbitro que no ha indicado nada se considera disponible.
+Se debe aplicar la regla de negocio R.N.06, R.N.07, R.N.14 y R.N.20.
 
-### R.F.10. Consultar mis Partidos
-Como árbitro quiero consultar los partidos que tengo asignados, con mi cargo y observaciones, para organizar mi agenda.
-Prueba de aceptación
+### R.F.04. Consultar mis Partidos
+Como árbitro quiero consultar los partidos que tengo asignados, con mi cargo, mis observaciones y el resultado si ya se ha registrado, para organizar mi agenda.
 Se listan sólo los partidos donde el árbitro tiene designación.
-Se muestran fecha, lugar, equipos, cargo y observaciones.
+Se muestran fecha, lugar, equipos, cargo, observaciones y resultado (si lo tiene).
+Los partidos suspendidos aparecen marcados como suspendidos.
+Se debe aplicar la regla de negocio R.N.13 y R.N.15.
 
-### R.F.11. Registrar Resultado
-Como árbitro quiero registrar los puntos de local y visitante para dejar constancia del resultado.
-Prueba de aceptación
-Se puede crear el resultado del partido con puntos de local y visitante, enteros mayores o iguales a 0.
-No se permite registrar resultado en un partido suspendido ni anterior a su fecha.
-Un árbitro sólo puede registrar resultado en los partidos que tiene designado.
-Se debe aplicar la regla de negocio R.N.06 y R.N.08.
+### R.F.05. Consultar Partidos Pendientes de Resultado
+Como administrador quiero consultar los partidos que ya han comenzado, no están suspendidos y todavía no tienen resultado, junto con su árbitro principal, para reclamar los resultados que faltan.
+Si el partido no tiene principal designado aparece igualmente.
+Se debe aplicar la regla de negocio R.N.09 y R.N.15.
 
-### R.F.12. Suspender Partido
-Como administrador quiero marcar un partido como suspendido para que no genere resultado.
-Prueba de aceptación
-Si tenía resultado, el sistema solicita confirmación y lo elimina.
-Se debe aplicar la regla de negocio R.N.06.
-
-### R.F.13. Registrar Incidencia
-Como árbitro quiero registrar una incidencia en un partido para dejar constancia de lo ocurrido.
-Prueba de aceptación
-Se puede crear una incidencia con descripción obligatoria asociada a un partido.
-Un partido puede tener varias incidencias.
-Solo pueden registrarla árbitros designados en ese partidos o administradores.
+### R.F.06. Consultar Incidencias
+Como administrador quiero consultar las incidencias de los partidos para hacer seguimiento y tomar decisiones.
+Se listan las incidencias con partido, fecha, árbitro que la registró y descripción.
+Se puede filtrar por partido, categoría y fecha, y buscar un texto en la descripción.
+Se muestran de la más reciente a la más antigua.
 Se debe aplicar la regla de negocio R.N.10.
 
-### R.F.14. Consultar Incidencias
-Como administrador quiero consultar las incidencias de los partidos para hacer seguimiento y tomar decisiones.
-Prueba de aceptación
-Se listan las incidencias con partido, fecha y descripción.
-Se puede filtrar por partido, categoría y fecha.
+### R.F.07. Consultar Árbitros con Mayor Carga de Designaciones
+Como administrador quiero consultar qué árbitro o árbitros tienen más designaciones en un periodo para repartir la carga de trabajo de forma equilibrada.
+Sólo cuentan los partidos no suspendidos del periodo indicado.
+Si varios árbitros empatan con el máximo, se muestran todos.
+Se debe aplicar la regla de negocio R.N.15.
 
-### R.F.15. Consultar Contabilidad
+### R.F.08. Consultar Agenda de un Árbitro
+Como administrador quiero consultar en una única lista, ordenada por fecha y hora, los partidos designados y las franjas en las que no está disponible un árbitro, para ver sus compromisos antes de designarle.
+Los partidos suspendidos no aparecen.
+Un árbitro sólo puede consultar su propia agenda.
+Se debe aplicar la regla de negocio R.N.07 y R.N.13.
+
+### R.F.09. Consultar Árbitros Polivalentes
+Como administrador quiero consultar los árbitros que han sido designados alguna vez como principal, como auxiliar y como oficial de mesa para identificar a los que pueden cubrir cualquier vacante del equipo arbitral.
+Un árbitro al que le falta alguno de los tres cargos no aparece.
+No aparecen los árbitros de baja.
+Se debe aplicar la regla de negocio R.N.06 y R.N.14.
+
+### R.F.10. Consultar Gasto del Comité por Categoría
+Como administrador quiero consultar, por categoría y en un periodo, el número de partidos contabilizados, el gasto total y los honorarios mínimo, máximo y medio, mostrando solo las categorías cuyo gasto supera un presupuesto indicado, para controlar los costes del comité.
+Sólo cuentan los partidos con resultado y no suspendidos del periodo indicado.
+El gasto de una categoría es la suma de los honorarios de todos los árbitros designados en sus partidos.
+Las categorías se muestran de mayor a menor gasto.
+Se debe aplicar la regla de negocio R.N.11, R.N.12 y R.N.15.
+
+### R.F.11. Consultar Contabilidad
 Como árbitro quiero consultar mi salario acumulado y el desglose de partidos para conocer lo que se me debe.
-Prueba de aceptación
 Se muestra el salario y la lista de partidos que lo componen.
 Los partidos suspendidos no suman.
 Un árbitro solo ve su propia contabilidad.
-Se debe aplicar la regla de negocio R.N.09.
+Se debe aplicar la regla de negocio R.N.12, R.N.13 y R.N.15.
 
-### R.F.16. Consultar Contabilidad General
+### R.F.12. Consultar Contabilidad General
 Como administrador quiero consultar la contabilidad de todos los árbitros para controlar los pagos del comité.
-Prueba de aceptación
 Se muestra el salario por árbitro y el total general.
 Se puede filtrar por árbitro y por rango de fechas.
 La suma de totales individuales coincide con el total general.
 
-### R.F.17. Gestionar mi Disponibilidad
+### R.F.13. Gestionar mi Disponibilidad
 Como árbitro quiero indicar mi disponibilidad por fecha y franja horaria para que el comité no me designe cuando no pueda arbitrar.
-Prueba de aceptación
 Se puede crear una disponibilidad con fecha, hora de inicio, hora de fin, disponible (sí/no) y observaciones opcionales.
 La hora de fin debe ser posterior a la de inicio.
 Un árbitro puede modificar o eliminar sus disponibilidades, y sólo las suyas.
-Se debe aplicar la regla de negocio R.N.13.
+Se debe aplicar la regla de negocio R.N.13 y R.N.19.
 
-### R.F.18. Consultar Disponibilidad de los Árbitros
+### R.F.14. Consultar Disponibilidad de los Árbitros
 Como administrador quiero consultar la disponibilidad de los árbitros para elegir a quién designar en cada partido.
-Prueba de aceptación
 Se puede filtrar por fecha y franja horaria y ver que árbitros están disponibles.
 Los árbitros con otra designación en esa franja aparecen como no disponibles.
-Se debe aplicar la regla de negocio R.N.05 y R.N.13.
+Se debe aplicar la regla de negocio R.N.07 y R.N.13.
 
 
 #### 4.1.1. Requisitos de información
 
 ### R.I.01. Información de usuario
 Como administrador quiero almacenar los datos de acceso de cada usuario para autenticarlos.
-Prueba de aceptación
 Se almacenan email (único) y contraseña (cifrada).
 Un usuario es Admin o Árbitro; el Admin tiene un atributo rol.
 
 ### R.I.02. Información de árbitro
 Como administrador quiero almacenar los datos personales y de contacto de cada árbitro para gestionarlo.
-Prueba de aceptación
 Se almacenan nombre completo, DNI (único), ciudad y número de teléfono.
 Cada árbitro está asociado a un único usuario.
 
 ### R.I.03. Información de partido
 Como administrador quiero almacenar los datos de cada partido para planificarlo y arbitrarlo.
-Prueba de aceptación
 Se almacenan: identificador, categoría, género, competición, jornada, lugar, fecha (y hora), equipo local, equipo visitante, suspendido (sí/no) y precio.
 El resultado se almacena aparte (R.I.08) y no existe hasta que se juega el partido.
 Suspendido es falso por defecto.
 
 ### R.I.04. Información de asignación
 Como administrador quiero almacenar la designación de un árbitro en un partido para saber quién arbitra y con qué función.
-Prueba de aceptación
 Se almacenan el árbitro, el partido, el cargo y las observaciones (opcionales).
 Un partido puede tener varias designaciones y un árbitro varias.
 La pareja árbitro–partido es única.
 
 ### R.I.05. Información de incidencia
 Como árbitro quiero almacenar la descripción de una incidencia para dejar constancia de lo ocurrido.
-Prueba de aceptación
 Se almacenan la descripción y el partido al que pertenece.
 Se recomienda almacenar también fecha de registro y autor.
 
 ### R.I.06. Información de contabilidad
 Como administrador quiero almacenar el salario (derivado) de cada árbitro para controlar los pagos.
-Prueba de aceptación
 Cada árbitro tiene una contabilidad con su salario (/salario).
 El salario es un atributo derivado y se calcula a partir de los partidos no suspendidos en que ha sido designado.
 
 ### R.I.07. Información de valores enumerados
 Como administrador quiero que ciertos campos tomen valores cerrados para evitar datos incoherentes.
-Prueba de aceptación
 Categoría: Senior, Junior, Cadete, Infantil, Mini.
 Competición: A, B, C.
 Género: Masculino, Femenino, Mixto.
@@ -240,13 +194,11 @@ Cargo: Principal, Auxiliar, Mesa.
 
 ### R.I.08. Información de resultado
 Como árbitro quiero almacenar el resultado de un partido para dejar constancia de su marcador.
-Prueba de aceptación
 Se almacenan los puntos de local y los puntos de visitante.
 Cada resultado pertenece a un único partido y un partido tiene como máximo un resultado.
 
 ### R.I.09. Información de disponibilidad
 Como árbitro quiero almacenar mis franjas de disponibilidad para que el comité las tenga en cuenta al designar.
-Prueba de aceptación
 Se almacenan fecha, hora de inicio, hora de fin, disponible (sí/no) y observaciones (opcional).
 Cada disponibilidad pertenece a un único árbitro y un árbitro puede tener varias.
 
@@ -351,6 +303,30 @@ Prueba: un partido suspendido rechaza el registro de resultado.
 Prueba: un partido suspendido no suma al salario de los árbitros.
 Prueba: el árbitro sigue viendo el partido en su lista, marcado como suspendido.
 
+### R.N.16. Precio inalterable tras contabilizar el partido.
+ Como administrador, quiero que no se pueda cambiar el precio de un partido que ya tiene resultado, para que el salario de los árbitros no cambie con efecto retroactivo.
+Prueba: se rechaza modificar el precio de un partido con resultado.
+
+### R.N.17. Designaciones inalterables tras contabilizar el partido.
+ Como administrador, quiero que no se pueda modificar ni eliminar una designación de un partido que ya tiene resultado, para conservar el historial de quién arbitró cada partido y no descuadrar los pagos.
+Prueba: se rechaza cambiar el cargo o eliminar una designación de un partido con resultado.
+
+### R.N.18. Suspender un partido anula su resultado.
+ Como administrador, quiero que al marcar un partido como suspendido se elimine su resultado si lo tenía, para que un partido que no se ha jugado no conserve marcador ni cuente para el salario.
+Prueba: al suspender un partido con resultado, el resultado se elimina.
+
+### R.N.19. Disponibilidades sin solapamiento.
+ Como árbitro, quiero que mis franjas de disponibilidad de un mismo día no se puedan solapar entre sí, para no constar a la vez como disponible y como no disponible.
+Prueba: se rechaza crear una franja que se solape con otra del mismo árbitro y la misma fecha.
+
+### R.N.20. Árbitros de baja no designables.
+ Como administrador, quiero que no se pueda designar a un árbitro de baja, para no asignar partidos a quien ya no puede acceder al sistema.
+Prueba: se rechaza designar a un árbitro cuyo usuario está de baja.
+
+### R.N.21. Incidencias solo desde el inicio del partido.
+ Como administrador, quiero que una incidencia solo se pueda registrar a partir de la hora de inicio del partido, para que recoja sucesos del encuentro y no previsiones.
+Prueba: se rechaza registrar una incidencia en un partido que todavía no ha empezado.
+
 
 ### 4.2. Requisitos no funcionales
 
@@ -435,5 +411,3 @@ Se consideran todo tipo de constraints declarativas (aquellas definidas durante 
 -- fin entregable 3 --
 
 ## Referencias
-
-
