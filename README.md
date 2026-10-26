@@ -355,12 +355,14 @@ Prueba: se rechaza registrar una incidencia en un partido que todavía no ha emp
 ### R.N.F.07. Copias de seguridad
  Como administrador, quiero una copia de seguridad diaria que se pueda recuperar en un máximo de 24 horas, para no perder resultados ni contabilidad.
 
+![Mapa de Historias de Usuario](mapa_historias_usuario.png)
+
 
 ## 5. Modelo conceptual
 
 ### 5.1. Diagramas de clases UML
 
-![Modelado Conceptual](img/modelo_conceptual.png).
+![Modelado Conceptual](img/modelo_conceptual.png)
 
 ### 5.2. Escenarios de prueba
 
