@@ -61,26 +61,26 @@ Administrador: Gestor del comité, se encargará de gestionar usuarios, árbitro
 
 ### 4.1. Requisitos funcionales
 
-### R.F.01. Filtrar Partidos
+### R#.F.01. Filtrar Partidos
 Como usuario quiero filtrar los partidos por categoría, género, competición, jornada y fecha, y ver cuántos árbitros tiene designados cada uno, para encontrar rápidamente los que me interesan.
 Cada filtro, solo o combinado, devuelve únicamente los partidos que cumplen todas las condiciones.
 Se muestra el número de árbitros designados de cada partido, incluidos los que no tienen ninguno.
 Sin resultados se muestra un mensaje informativo.
 Se debe aplicar la regla de negocio R.N.05.
 
-### R.F.02. Consultar Partidos con Equipo Arbitral Incompleto
+#### R.F.02. Consultar Partidos con Equipo Arbitral Incompleto
 Como administrador quiero consultar los partidos no suspendidos que todavía no tienen cubiertos los tres cargos (principal, auxiliar y mesa), indicando cuántos cargos les faltan, para saber en qué partidos tengo que designar árbitros.
 Un partido sin ninguna designación aparece con 3 cargos pendientes.
 Un partido con los tres cargos cubiertos no aparece.
 Se debe aplicar la regla de negocio R.N.06 y R.N.15.
 
-### R.F.03. Consultar Árbitros Candidatos para un Partido
+#### R.F.03. Consultar Árbitros Candidatos para un Partido
 Como administrador quiero consultar los árbitros que se pueden designar en un partido concreto para elegir a quién designar sin incumplir las reglas de negocio.
 Solo aparecen los árbitros que no están de baja, que no están ya designados en ese partido, que no tienen otro partido que se solape con él y que no han indicado que no están disponibles en esa franja.
 Un árbitro que no ha indicado nada se considera disponible.
 Se debe aplicar la regla de negocio R.N.06, R.N.07, R.N.14 y R.N.20.
 
-### R.F.04. Consultar mis Partidos
+#### R.F.04. Consultar mis Partidos
 Como árbitro quiero consultar los partidos que tengo asignados, con mi cargo, mis observaciones y el resultado si ya se ha registrado, para organizar mi agenda.
 Se listan sólo los partidos donde el árbitro tiene designación.
 Se muestran fecha, lugar, equipos, cargo, observaciones y resultado (si lo tiene).
@@ -92,39 +92,39 @@ Como administrador quiero consultar los partidos que ya han comenzado, no están
 Si el partido no tiene principal designado aparece igualmente.
 Se debe aplicar la regla de negocio R.N.09 y R.N.15.
 
-### R.F.06. Consultar Incidencias
+#### R.F.06. Consultar Incidencias
 Como administrador quiero consultar las incidencias de los partidos para hacer seguimiento y tomar decisiones.
 Se listan las incidencias con partido, fecha, árbitro que la registró y descripción.
 Se puede filtrar por partido, categoría y fecha, y buscar un texto en la descripción.
 Se muestran de la más reciente a la más antigua.
 Se debe aplicar la regla de negocio R.N.10.
 
-### R.F.07. Consultar Árbitros con Mayor Carga de Designaciones
+#### R.F.07. Consultar Árbitros con Mayor Carga de Designaciones
 Como administrador quiero consultar qué árbitro o árbitros tienen más designaciones en un periodo para repartir la carga de trabajo de forma equilibrada.
 Sólo cuentan los partidos no suspendidos del periodo indicado.
 Si varios árbitros empatan con el máximo, se muestran todos.
 Se debe aplicar la regla de negocio R.N.15.
 
-### R.F.08. Consultar Agenda de un Árbitro
+#### R.F.08. Consultar Agenda de un Árbitro
 Como administrador quiero consultar en una única lista, ordenada por fecha y hora, los partidos designados y las franjas en las que no está disponible un árbitro, para ver sus compromisos antes de designarle.
 Los partidos suspendidos no aparecen.
 Un árbitro sólo puede consultar su propia agenda.
 Se debe aplicar la regla de negocio R.N.07 y R.N.13.
 
-### R.F.09. Consultar Árbitros Polivalentes
+#### R.F.09. Consultar Árbitros Polivalentes
 Como administrador quiero consultar los árbitros que han sido designados alguna vez como principal, como auxiliar y como oficial de mesa para identificar a los que pueden cubrir cualquier vacante del equipo arbitral.
 Un árbitro al que le falta alguno de los tres cargos no aparece.
 No aparecen los árbitros de baja.
 Se debe aplicar la regla de negocio R.N.06 y R.N.14.
 
-### R.F.10. Consultar Gasto del Comité por Categoría
+#### R.F.10. Consultar Gasto del Comité por Categoría
 Como administrador quiero consultar, por categoría y en un periodo, el número de partidos contabilizados, el gasto total y los honorarios mínimo, máximo y medio, mostrando solo las categorías cuyo gasto supera un presupuesto indicado, para controlar los costes del comité.
 Sólo cuentan los partidos con resultado y no suspendidos del periodo indicado.
 El gasto de una categoría es la suma de los honorarios de todos los árbitros designados en sus partidos.
 Las categorías se muestran de mayor a menor gasto.
 Se debe aplicar la regla de negocio R.N.11, R.N.12 y R.N.15.
 
-### R.F.11. Consultar Contabilidad
+#### R.F.11. Consultar Contabilidad
 Como árbitro quiero consultar mi salario acumulado y el desglose de partidos para conocer lo que se me debe.
 Se muestra el salario y la lista de partidos que lo componen.
 Los partidos suspendidos no suman.
@@ -137,73 +137,77 @@ Se muestra el salario por árbitro y el total general.
 Se puede filtrar por árbitro y por rango de fechas.
 La suma de totales individuales coincide con el total general.
 
-### R.F.13. Gestionar mi Disponibilidad
+#### R.F.13. Gestionar mi Disponibilidad
 Como árbitro quiero indicar mi disponibilidad por fecha y franja horaria para que el comité no me designe cuando no pueda arbitrar.
 Se puede crear una disponibilidad con fecha, hora de inicio, hora de fin, disponible (sí/no) y observaciones opcionales.
 La hora de fin debe ser posterior a la de inicio.
 Un árbitro puede modificar o eliminar sus disponibilidades, y sólo las suyas.
 Se debe aplicar la regla de negocio R.N.13 y R.N.19.
 
-### R.F.14. Consultar Disponibilidad de los Árbitros
+#### R.F.14. Consultar Disponibilidad de los Árbitros
 Como administrador quiero consultar la disponibilidad de los árbitros para elegir a quién designar en cada partido.
 Se puede filtrar por fecha y franja horaria y ver que árbitros están disponibles.
 Los árbitros con otra designación en esa franja aparecen como no disponibles.
 Se debe aplicar la regla de negocio R.N.07 y R.N.13.
 
+#### R.F.15. Consultar Pedidos de los Árbitros
+Como administrador quiero consultar los pedidos de los árbitros para saber quién a pedido ropa y cual. 
+Se puede filtrar por tipo de prenda.
 
-## 4.1.1. Requisitos de información
 
-### R.I.01. Información de usuario
+### 4.1.1. Requisitos de información
+
+#### R.I.01. Información de usuario
 Como administrador quiero almacenar los datos de acceso de cada usuario para autenticarlos.
 Se almacenan email (único) y contraseña (cifrada).
 Un usuario es Admin o Árbitro; el Admin tiene un atributo rol.
 
-### R.I.02. Información de árbitro
+#### R.I.02. Información de árbitro
 Como administrador quiero almacenar los datos personales y de contacto de cada árbitro para gestionarlo.
 Se almacenan nombre completo, DNI (único), ciudad y número de teléfono.
 Cada árbitro está asociado a un único usuario.
 
-### R.I.03. Información de partido
+#### R.I.03. Información de partido
 Como administrador quiero almacenar los datos de cada partido para planificarlo y arbitrarlo.
 Se almacenan: identificador, categoría, género, competición, jornada, lugar, fecha (y hora), equipo local, equipo visitante, suspendido (sí/no) y precio.
 El resultado se almacena aparte (R.I.08) y no existe hasta que se juega el partido.
 Suspendido es falso por defecto.
 
-### R.I.04. Información de asignación
+#### R.I.04. Información de asignación
 Como administrador quiero almacenar la designación de un árbitro en un partido para saber quién arbitra y con qué función.
 Se almacenan el árbitro, el partido, el cargo y las observaciones (opcionales).
 Un partido puede tener varias designaciones y un árbitro varias.
 La pareja árbitro–partido es única.
 
-### R.I.05. Información de incidencia
+#### R.I.05. Información de incidencia
 Como árbitro quiero almacenar la descripción de una incidencia para dejar constancia de lo ocurrido.
 Se almacenan la descripción y el partido al que pertenece.
 Se recomienda almacenar también fecha de registro y autor.
 
-### R.I.06. Información de contabilidad
+#### R.I.06. Información de contabilidad
 Como administrador quiero almacenar el salario (derivado) de cada árbitro para controlar los pagos.
 Cada árbitro tiene una contabilidad con su salario (/salario).
 El salario es un atributo derivado y se calcula a partir de los partidos no suspendidos en que ha sido designado.
 
-### R.I.07. Información de valores enumerados
+#### R.I.07. Información de valores enumerados
 Como administrador quiero que ciertos campos tomen valores cerrados para evitar datos incoherentes.
 Categoría: Senior, Junior, Cadete, Infantil, Mini.
 Competición: A, B, C.
 Género: Masculino, Femenino, Mixto.
 Cargo: Principal, Auxiliar, Mesa.
 
-### R.I.08. Información de resultado
+#### R.I.08. Información de resultado
 Como árbitro quiero almacenar el resultado de un partido para dejar constancia de su marcador.
 Se almacenan los puntos de local y los puntos de visitante.
 Cada resultado pertenece a un único partido y un partido tiene como máximo un resultado.
 
-### R.I.09. Información de disponibilidad
+#### R.I.09. Información de disponibilidad
 Como árbitro quiero almacenar mis franjas de disponibilidad para que el comité las tenga en cuenta al designar.
 Se almacenan fecha, hora de inicio, hora de fin, disponible (sí/no) y observaciones (opcional).
 Cada disponibilidad pertenece a un único árbitro y un árbitro puede tener varias.
 
 
-#### 4.1.2. Reglas de negocio
+### 4.1.2. Reglas de negocio
 
 ### R.N.01. Email único.
  Como administrador, quiero que cada usuario tenga un email único, aportado por él mismo y no asignado por el comité, para identificar sin confusión a cada persona al iniciar sesión.
