@@ -87,7 +87,7 @@ Se muestran fecha, lugar, equipos, cargo, observaciones y resultado (si lo tiene
 Los partidos suspendidos aparecen marcados como suspendidos.
 Se debe aplicar la regla de negocio R.N.13 y R.N.15.
 
-### R.F.05. Consultar Partidos Pendientes de Resultado
+#### R.F.05. Consultar Partidos Pendientes de Resultado
 Como administrador quiero consultar los partidos que ya han comenzado, no están suspendidos y todavía no tienen resultado, junto con su árbitro principal, para reclamar los resultados que faltan.
 Si el partido no tiene principal designado aparece igualmente.
 Se debe aplicar la regla de negocio R.N.09 y R.N.15.
