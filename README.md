@@ -331,6 +331,10 @@ Prueba: se rechaza designar a un árbitro cuyo usuario está de baja.
  Como administrador, quiero que una incidencia solo se pueda registrar a partir de la hora de inicio del partido, para que recoja sucesos del encuentro y no previsiones.
 Prueba: se rechaza registrar una incidencia en un partido que todavía no ha empezado.
 
+#### R.N.22. Los pedidos deben estar completos.
+ Como administrador, quiero que un pedido aparezca el producto, la talla y la cantidad, para que no haya pedidos en los que falten datos.
+Prueba: se rechaza registrar un pedido del cual falte algún dato.
+
 
 ### 4.2. Requisitos no funcionales
 
