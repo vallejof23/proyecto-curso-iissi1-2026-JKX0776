@@ -131,7 +131,7 @@ Los partidos suspendidos no suman.
 Un árbitro solo ve su propia contabilidad.
 Se debe aplicar la regla de negocio R.N.12, R.N.13 y R.N.15.
 
-### R.F.12. Consultar Contabilidad General
+#### R.F.12. Consultar Contabilidad General
 Como administrador quiero consultar la contabilidad de todos los árbitros para controlar los pagos del comité.
 Se muestra el salario por árbitro y el total general.
 Se puede filtrar por árbitro y por rango de fechas.
