@@ -1,4 +1,3 @@
-![Uploading fig_5_1_diagrama_clases.png…]()
 # GesReferee
 
 ## Miembros del grupo L8-AM-G6
