@@ -360,7 +360,7 @@ Prueba: se rechaza registrar una incidencia en un partido que todavía no ha emp
 
 ### 5.1. Diagramas de clases UML
 
-- con restricciones.
+![Modelado Conceptual](img/modeli_conceptual.png).
 
 ### 5.2. Escenarios de prueba
 
