@@ -151,7 +151,7 @@ Los árbitros con otra designación en esa franja aparecen como no disponibles.
 Se debe aplicar la regla de negocio R.N.07 y R.N.13.
 
 
-#### 4.1.1. Requisitos de información
+## 4.1.1. Requisitos de información
 
 ### R.I.01. Información de usuario
 Como administrador quiero almacenar los datos de acceso de cada usuario para autenticarlos.
