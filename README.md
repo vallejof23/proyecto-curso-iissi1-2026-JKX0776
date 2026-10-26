@@ -61,7 +61,7 @@ Administrador: Gestor del comité, se encargará de gestionar usuarios, árbitro
 
 ### 4.1. Requisitos funcionales
 
-### R#.F.01. Filtrar Partidos
+#### R.F.01. Filtrar Partidos
 Como usuario quiero filtrar los partidos por categoría, género, competición, jornada y fecha, y ver cuántos árbitros tiene designados cada uno, para encontrar rápidamente los que me interesan.
 Cada filtro, solo o combinado, devuelve únicamente los partidos que cumplen todas las condiciones.
 Se muestra el número de árbitros designados de cada partido, incluidos los que no tienen ninguno.
