@@ -209,31 +209,31 @@ Cada disponibilidad pertenece a un único árbitro y un árbitro puede tener var
 
 ### 4.1.2. Reglas de negocio
 
-### R.N.01. Email único.
+#### R.N.01. Email único.
  Como administrador, quiero que cada usuario tenga un email único, aportado por él mismo y no asignado por el comité, para identificar sin confusión a cada persona al iniciar sesión.
 Prueba: no se puede crear un usuario con un email ya registrado.
 Prueba: se rechaza un email con formato incorrecto (por ejemplo, sin @).
 
-### R.N.02. Contraseña segura.
+#### R.N.02. Contraseña segura.
  Como administrador, quiero que la contraseña tenga al menos 8 caracteres y que nunca se guarde tal cual la escribe el usuario, sino de forma protegida, para que nadie pueda verla ni siquiera si accede a la base de datos.
 Prueba: una contraseña de menos de 8 caracteres se rechaza.
 Prueba: al consultar los datos de un usuario, la contraseña no aparece de forma legible.
 
-### R.N.03. Gestión de usuarios.
+#### R.N.03. Gestión de usuarios.
  Como administrador, quiero ser quien cree y dé de baja a los usuarios y quien modifique su DNI, nombre completo y ciudad, mientras que cada árbitro solo pueda modificar su contraseña, teléfono y email, para que el comité controle quién accede al sistema y nadie pueda alterar su identidad ni descuadrar los pagos.
 Prueba: un árbitro que intenta crear o dar de baja a un usuario recibe un error de permisos.
 Prueba: un árbitro puede cambiar su contraseña, su teléfono y su email.
 Prueba: un árbitro que intenta cambiar su DNI, nombre o ciudad recibe un error de permisos.
 Prueba: un árbitro no puede poner un email que ya pertenece a otro usuario.
 
-### R.N.04. DNI único y válido.
+#### R.N.04. DNI único y válido.
  Como administrador, quiero que el DNI de un árbitro sea único, con 8 dígitos y letra de control correcta, para evitar duplicados que afecten a los pagos.
 Prueba: se rechaza un DNI que ya está registrado en otro árbitro.
 Prueba: se rechaza un DNI con más o menos de 8 dígitos.
 Prueba: se rechaza un DNI cuya letra no corresponde a sus números.
 Prueba: un DNI correcto y no repetido se acepta.
 
-### R.N.05. Partidos válidos.
+#### R.N.05. Partidos válidos.
  Como administrador, quiero que todo partido tenga fecha y hora, lugar, jornada, equipo local, equipo visitante, categoría (Senior, Junior, Cadete, Infantil, Mini), género (masculino, femenino, mixto) y competición (A, B, C), que los dos equipos sean distintos y que no haya dos partidos en el mismo lugar con horarios solapados (se estima una duración de 2 horas), sea cual sea su categoría o género, para poder filtrar, designar y pagar sin conflictos de instalaciones.
 Prueba: no se puede crear un partido sin alguno de esos datos.
 Prueba: se rechaza un partido cuyo equipo local y visitante son el mismo.
@@ -242,120 +242,120 @@ Prueba: se rechaza un partido en el mismo lugar que empiece dentro de las 2 hora
 Prueba: se acepta un partido en el mismo lugar que empiece cuando el anterior ya ha terminado (10:00 y 12:00).
 Prueba: se acepta un partido a la misma fecha y hora en un lugar distinto.
 
-### R.N.06. Composición del equipo arbitral.
+#### R.N.06. Composición del equipo arbitral.
  Como administrador, quiero que un partido solo se considere completo cuando tenga un árbitro principal, un auxiliar y un oficial de mesa, y que cada árbitro tenga un único cargo en el mismo partido, para evitar partidos sin cubrir y que nadie figure con dos cargos y cobre dos veces.
 Prueba: un partido con principal y auxiliar pero sin mesa aparece como “incompleto”.
 Prueba: un partido con los tres cargos cubiertos aparece como “completo”.
 Prueba: se rechaza asignar un segundo cargo al mismo árbitro en el mismo partido.
 Prueba: se rechaza designar un segundo árbitro con un cargo ya cubierto en ese partido.
 
-### R.N.07. Sin solapamientos y respeto de la disponibilidad.
+#### R.N.07. Sin solapamientos y respeto de la disponibilidad.
  Como administrador, quiero que un árbitro no pueda ser designado en dos partidos cuyos horarios se solapen (se estima una duración de 2 horas más 30 minutos de margen de desplazamiento) ni en una franja en la que haya indicado que no está disponible, para evitar los solapamientos de las hojas de cálculo y no designar a quien no puede acudir. Si el árbitro no ha indicado nada, se le considera disponible.
 Prueba: con un partido a las 10:00, se rechaza designarlo a las 11:00 y a las 12:15.
 Prueba: con un partido a las 10:00, se acepta designarlo a las 12:30.
 Prueba: se rechaza designar a un árbitro en una franja marcada como no disponible.
 Prueba: se acepta designar a un árbitro que no ha registrado ninguna disponibilidad.
 
-### R.N.08. Designaciones solo por el administrador.
+#### R.N.08. Designaciones solo por el administrador.
  Como administrador, quiero ser el único que cree, modifique o anule designaciones, mientras que los árbitros solo las consultan, para mantener un criterio único.
 Prueba: un árbitro que intenta crear, modificar o anular una designación recibe un error de permisos.
 Prueba: el administrador puede crear, modificar y anular designaciones.
 
-### R.N.09. Registro del resultado.
+#### R.N.09. Registro del resultado.
  Como administrador, quiero que solo el árbitro principal designado en un partido registre su resultado, una única vez, después de la hora de inicio y solo si el partido no está suspendido, y que solo yo pueda corregirlo, para tener un origen fiable del resultado.
 Prueba: un auxiliar o un oficial de mesa no puede registrar el resultado.
 Prueba: el principal no puede registrarlo antes de la hora de inicio ni por segunda vez.
 Prueba: no se puede registrar el resultado de un partido suspendido ni con puntos negativos.
 Prueba: el principal puede registrarlo una vez iniciado el partido, y solo el administrador puede corregirlo después.
 
-### R.N.10. Incidencias.
+#### R.N.10. Incidencias.
  Como administrador, quiero que las incidencias de un partido solo las registren los árbitros designados en él, con una descripción obligatoria y un máximo de una incidencia por partido, para que todo lo ocurrido quede centralizado y el comité pueda revisarlo.
 Prueba: un árbitro no designado en el partido no puede registrar una incidencia.
 Prueba: se rechaza una incidencia sin descripción.
 Prueba: se rechaza una segunda incidencia en un partido que ya tiene una.
 Prueba: un árbitro designado puede registrar la incidencia de su partido.
 
-### R.N.11. Precio del partido.
+#### R.N.11. Precio del partido.
  Como administrador, quiero que cada partido tenga un precio fijado por mí al crearlo, no negativo, y que ese precio sea el honorario de cada árbitro designado en él, para que el pago no dependa de cálculos manuales.
 Prueba: no se puede crear un partido sin precio.
 Prueba: se rechaza un precio negativo.
 Prueba: un árbitro designado ve el precio de su partido.
 
-### R.N.12. Salario del árbitro.
+#### R.N.12. Salario del árbitro.
  Como administrador, quiero que el salario de cada árbitro se calcule automáticamente como la suma de los precios de los partidos que ha arbitrado y que ya tienen resultado, sin contar los suspendidos, y que no se pueda escribir a mano, para evitar errores de cálculo.
 Prueba: un árbitro con dos partidos con resultado, de 30 € y 40 €, tiene un salario de 70 €.
 Prueba: un partido sin resultado no suma al salario.
 Prueba: un partido suspendido no suma al salario.
 Prueba: nadie puede modificar el salario manualmente.
 
-### R.N.13. Visibilidad de datos.
+#### R.N.13. Visibilidad de datos.
  Como árbitro, quiero ver y gestionar solo mis propios datos (partidos, disponibilidad y contabilidad), mientras que el administrador accede a todo, para proteger la privacidad económica y personal.
 Prueba: al consultar la contabilidad de otro árbitro, el sistema deniega el acceso.
 Prueba: un árbitro no puede modificar la disponibilidad de otro árbitro.
 Prueba: el administrador puede consultar los datos de todos los árbitros.
 
-### R.N.14. Baja lógica.
+#### R.N.14. Baja lógica.
  Como administrador, quiero que la baja de un usuario no borre sus datos, que el usuario de baja no pueda iniciar sesión y que no se pueda dar de baja a un árbitro con designaciones futuras sin reasignarlas antes, para conservar el historial y no dejar partidos huérfanos.
 Prueba: tras dar de baja a un árbitro, sus partidos y su contabilidad siguen consultables por el administrador.
 Prueba: un usuario de baja no puede iniciar sesión.
 Prueba: dar de baja a un árbitro con un partido futuro se rechaza hasta reasignarlo.
 
-### R.N.15. Partidos suspendidos.
+#### R.N.15. Partidos suspendidos.
  Como administrador, quiero poder marcar un partido como suspendido, de modo que no admita resultado ni cuente para el salario, aunque conserve sus designaciones por si se reprograma, para no pagar partidos que no se han jugado.
 Prueba: solo el administrador puede marcar un partido como suspendido.
 Prueba: un partido suspendido rechaza el registro de resultado.
 Prueba: un partido suspendido no suma al salario de los árbitros.
 Prueba: el árbitro sigue viendo el partido en su lista, marcado como suspendido.
 
-### R.N.16. Precio inalterable tras contabilizar el partido.
+#### R.N.16. Precio inalterable tras contabilizar el partido.
  Como administrador, quiero que no se pueda cambiar el precio de un partido que ya tiene resultado, para que el salario de los árbitros no cambie con efecto retroactivo.
 Prueba: se rechaza modificar el precio de un partido con resultado.
 
-### R.N.17. Designaciones inalterables tras contabilizar el partido.
+#### R.N.17. Designaciones inalterables tras contabilizar el partido.
  Como administrador, quiero que no se pueda modificar ni eliminar una designación de un partido que ya tiene resultado, para conservar el historial de quién arbitró cada partido y no descuadrar los pagos.
 Prueba: se rechaza cambiar el cargo o eliminar una designación de un partido con resultado.
 
-### R.N.18. Suspender un partido anula su resultado.
+#### R.N.18. Suspender un partido anula su resultado.
  Como administrador, quiero que al marcar un partido como suspendido se elimine su resultado si lo tenía, para que un partido que no se ha jugado no conserve marcador ni cuente para el salario.
 Prueba: al suspender un partido con resultado, el resultado se elimina.
 
-### R.N.19. Disponibilidades sin solapamiento.
+#### R.N.19. Disponibilidades sin solapamiento.
  Como árbitro, quiero que mis franjas de disponibilidad de un mismo día no se puedan solapar entre sí, para no constar a la vez como disponible y como no disponible.
 Prueba: se rechaza crear una franja que se solape con otra del mismo árbitro y la misma fecha.
 
-### R.N.20. Árbitros de baja no designables.
+#### R.N.20. Árbitros de baja no designables.
  Como administrador, quiero que no se pueda designar a un árbitro de baja, para no asignar partidos a quien ya no puede acceder al sistema.
 Prueba: se rechaza designar a un árbitro cuyo usuario está de baja.
 
-### R.N.21. Incidencias solo desde el inicio del partido.
+#### R.N.21. Incidencias solo desde el inicio del partido.
  Como administrador, quiero que una incidencia solo se pueda registrar a partir de la hora de inicio del partido, para que recoja sucesos del encuentro y no previsiones.
 Prueba: se rechaza registrar una incidencia en un partido que todavía no ha empezado.
 
 
 ### 4.2. Requisitos no funcionales
 
-### R.N.F.01. Seguridad de acceso
+#### R.N.F.01. Seguridad de acceso
  Como administrador, quiero que el acceso al sistema sea solo con email y contraseña, que la sesión se cierre tras 30 minutos de inactividad, que la cuenta se bloquee temporalmente tras 5 intentos fallidos y que cada acción se compruebe según el rol en el servidor, y no solo ocultando botones, para que nadie acceda a datos que no le corresponden.
 
-### R.N.F.02. Protección de datos personales
+#### R.N.F.02. Protección de datos personales
  Como administrador, quiero que los datos personales (DNI, email y teléfono) se traten conforme a las leyes del Reglamento General de Protección de Datos y solo los vea quien los necesite, para cumplir la ley y proteger a los árbitros.
 
-### R.N.F.03. Usabilidad y uso en móvil
+#### R.N.F.03. Usabilidad y uso en móvil
  Como árbitro, quiero que la interfaz se adapte al móvil y que consultar mis partidos o registrar un resultado lleve menos de 1 minuto, para poder usarla desde el pabellón.
 
-### R.N.F.04. Rendimiento
+#### R.N.F.04. Rendimiento
  Como administrador, quiero que las consultas y los listados respondan en menos de 2 segundos con 50 usuarios a la vez, para que el sistema siga siendo ágil cuando se publican las designaciones.
 
-### R.N.F.05. Compatibilidad y localización
+#### R.N.F.05. Compatibilidad y localización
  Como árbitro, quiero que el sistema funcione en Chrome, Firefox, Edge y Safari sin instalar nada, con la interfaz en español, las fechas en formato dd/mm/aaaa y los importes en euros, para usarlo desde cualquier dispositivo.
 
-### R.N.F.06. Integridad de los datos
+#### R.N.F.06. Integridad de los datos
  Como administrador, quiero que las operaciones importantes (designar y registrar un resultado) se completen enteras o no se hagan, y que los importes se guarden con 2 decimales exactos, para evitar datos a medias y errores de cálculo.
 
-### R.N.F.07. Copias de seguridad
+#### R.N.F.07. Copias de seguridad
  Como administrador, quiero una copia de seguridad diaria que se pueda recuperar en un máximo de 24 horas, para no perder resultados ni contabilidad.
 
-![Mapa de Historias de Usuario](mapa_historias_usuario.png)
+![Mapa de Historias de Usuario](img/mapa_historias_usuario.png)
 
 
 ## 5. Modelo conceptual
