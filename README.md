@@ -376,15 +376,10 @@ Prueba: se rechaza registrar un pedido del cual falte algún dato.
 
 - Matriz de trazabilidad entre los elementos del modelo conceptual y los requisitos.
 
-|       | EntidadX   | AsociaciónX  | RestricciónX  | Entidad2 ...   | 
-|:------|:-----------|:-----------|:-----------|:-----------|
-| RI-1  | X          | X          | X          | X          |
-| RI-2  |            | X          |            | X          |
-| RF-1  |            | X          |            | X          |
-| RF-2  | X          |            | X          | X          |
-| RN-1  |            | X          |            |            |
-| RN-2  | X          | X          | X          |            |
-| ...   |            |            |            |            |
+<img width="812" height="1244" alt="image" src="https://github.com/user-attachments/assets/fd238f75-7028-41e4-b18f-eed6fb0538f4" />
+<img width="818" height="262" alt="image" src="https://github.com/user-attachments/assets/3f46225a-e5c2-4047-ae4a-f864b6ea5c51" />
+
+
 
 -- fin entregable 2 --
 
